@@ -14,118 +14,115 @@ print(my_listComprehension)
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
-
+a = range(20)
+square =[i**2 for i in a]
+print(square)
 
 #2. Calculate the first 50 power of two. Use power_of_two as the name of the list.
 # Remember to use list comprehensions and to print your results
-
-
-
+b=range(50)
+power_of_two = [2**i for i in b]
+print(power_of_two)
 
 #3. Calculate the square root of the first 100 numbers. Use sqrt as the name of the list.
 # You will probably need to install math library with pip and import it in this file.  
 # Remember to use list comprehensions and to print your results
-
-
-
+import math
+c = range(101)
+sqrt = [math.sqrt(i)for i in c]
+print(sqrt)
 
 #4. Create this list [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]. Use my_list as the name of the list.
 # Remember to use list comprehensions and to print your results
-
-
-
+d = range(-10,1)
+my_list = [i for i in d]
+print(my_list)
 
 #5. Find the odd numbers from 1-100. Use odds as the name of the list. 
-# Remember to use list comprehensions and to print your results
-
-
-
+# Remember to use list comprehensions and to print your results   
+odds = [i if i%2 ==0 else"**" for i in range(0,101)]
+print(odds)
 
 #6. Find all of the numbers from 1-1000 that are divisible by 7. Use divisible_by_seven as the name of the list.
 # Remember to use list comprehensions and to print your results
-
-
-
+divisible_by_seven  = [i if i%7==0 else"**" for i in range(1,1001)]
+print(divisible_by_seven)
 
 #7. Remove all of the vowels in a string. Hint: make a list of the non-vowels. Use non_vowels as the name of the list.
 # Remember to use list comprehensions and to print your results
 # You can use the following test string but feel free to modify at your convenience
-
 teststring = 'Find all of the words in a string that are monosyllabic'
-
-
-
+vowels = {"a", "e","i","o","u"}
+non_vowels= [i for i in teststring if i not in vowels]
+print(non_vowels)
 
 #8. Find the capital letters (and not white space) in the sentence 'The Quick Brown Fox Jumped Over The Lazy Dog'. 
 # Use capital_letters as the name of the list.  
 # Remember to use list comprehensions and to print your results
-
-
-
+test = 'The Quick Brown Fox Jumped Over The Lazy Dog'
+capital_letters = ["".join([upper(i) for i in capital_letters]
+print(capital_letters)
 
 #9. Find all the consonants in the sentence 'The quick brown fox jumped over the lazy dog'.
 # Use consonants as the name of the list.
 # Remember to use list comprehensions and to print your results.
-
-
-
-
+test_1 = 'The quick brown fox jumped over the lazy dog'
+vowels ={"a", "e","i","o","u"}
+consonants =[i for i in test_1 if i not in vowels]
+print(consonants)
 
 #10. Find the folders you have in your madrid-oct-2018 local repo. Use files as name of the list.  
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
-
-
+import os
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
-
-
-
+import random
+a =range(0,101)
+print(random.sample(a, 10))
 
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
-
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
-
-
+flatten_list = [i for sub in list_of_lists for i in sub]
+print(flatten_list)
 
 #13. Convert the numbers of the following nested list to floats. Use floats as the name of the list. 
 # Remember to use list comprehensions and to print your results.
-
 list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20'], \
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
-
-
-
+float = [float(i) for sub1 in list_of_lists for i in sub1]
+print(float)
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
-
-
 for i in ['a','b','c']:
-    print i**2
-
+    try:
+        print i**2
+    except:
+        print("Good Bye")
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
 #Then use a finally block to print 'All Done.'
 # Check in provided resources the type of error you may use. 
-
 x = 5
 y = 0
-
-z = x/y
-
-
-
+try:
+    z = x/y
+except:
+    print("ZeroDivisionError")
+finally:
+    print("All Done")
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-
 abc=[10,20,20]
-print(abc[3])
+try:
+    print(abc[3])
+except:
+    print("Index Error")
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
@@ -137,22 +134,26 @@ print(abc[3])
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-
-f = open('testfile','r')
-f.write('Test write this')
+try:
+    f = open('testfile','r')
+    print("FileNotFoundError")
+except:
+    f.write('Test write this')
+    print("NameError,f is not defined")
 
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
-
-fp = open('myfile.txt')
+try:
+    fp = open('myfile.txt')
+    print("Myfile.txt not exist")
+except:
     line = f.readline()
+    print("f is not defined")
     i = int(s.strip())
-
-
-
+    print("Data could not be convertable to int")
 
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
@@ -162,7 +163,6 @@ fp = open('myfile.txt')
 def linux_interaction():
     assert ('linux' in sys.platform), "Function can only run on Linux systems."
     print('Doing something.')
-
 
 # Bonus Questions:
 
@@ -187,5 +187,3 @@ def linux_interaction():
 
 Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
-
-
